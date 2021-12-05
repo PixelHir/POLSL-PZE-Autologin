@@ -30,7 +30,7 @@
                     key = SimpleCrypto.generateRandom(256);
                     GM.setValue("__pzeautologin_enc", key);
                 }
-                var simpleCrypto = new SimpleCrypto("key");
+                var simpleCrypto = new SimpleCrypto(key);
                 Promise.all([GM.getValue("pzeautologin_username"), GM.getValue("pzeautologin_password")])
                     .then((values) => {
                         var username = values[0];
