@@ -2,7 +2,7 @@
 // @name        POLSL PZE Autologin
 // @namespace   https://github.com/PixelHir
 // @match       http*://platforma*.polsl.pl/*
-// @version     1.0
+// @version     1.0.1
 // @author      Jędrzej Gortel (github.com/PixelHir)
 // @require     https://code.jquery.com/jquery-3.6.0.slim.min.js
 // @require     https://cdn.jsdelivr.net/npm/simple-crypto-js@2.5.0/dist/SimpleCrypto.min.js
@@ -87,9 +87,12 @@
         }
         username = simpleCrypto.encrypt(username);
         password = simpleCrypto.encrypt(password);
-        GM.setValue("pzeautologin_username", username);
-        GM.setValue("pzeautologin_password", password);
-        location.reload();
+        //GM.setValue("pzeautologin_username", username);
+        //GM.setValue("pzeautologin_password", password);
+        Promise.all([GM.setValue("pzeautologin_username", username), GM.setValue("pzeautologin_password", password)])
+        .then(() => {
+          console.log('data saved')
+        });
     }
 
     function clickLoginBtn() {
