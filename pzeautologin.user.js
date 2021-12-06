@@ -10,7 +10,7 @@
 // @grant       GM.setValue
 // @grant       GM.deleteValue
 // @downloadURL https://github.com/PixelHir/POLSL-PZE-Autologin/raw/master/pzeautologin.user.js
-// @updateURL
+// @updateURL   https://github.com/PixelHir/POLSL-PZE-Autologin/raw/master/pzeautologin.user.js
 // @description Skrypt pozwalający na automatyczne logowanie do PZE Politechniki Śląskiej
 // ==/UserScript==
 
