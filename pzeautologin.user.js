@@ -2,13 +2,15 @@
 // @name        POLSL PZE Autologin
 // @namespace   https://github.com/PixelHir
 // @match       http*://platforma*.polsl.pl/*
-// @version     1.0.1
+// @version     1.0.2
 // @author      Jędrzej Gortel (github.com/PixelHir)
 // @require     https://code.jquery.com/jquery-3.6.0.slim.min.js
 // @require     https://cdn.jsdelivr.net/npm/simple-crypto-js@2.5.0/dist/SimpleCrypto.min.js
 // @grant       GM.getValue
 // @grant       GM.setValue
 // @grant       GM.deleteValue
+// @downloadURL https://github.com/PixelHir/POLSL-PZE-Autologin/raw/master/pzeautologin.user.js
+// @updateURL
 // @description Skrypt pozwalający na automatyczne logowanie do PZE Politechniki Śląskiej
 // ==/UserScript==
 
@@ -115,7 +117,8 @@
         window.addEventListener('load', (event) => {
             login()
         });
-    } else if (pzehostmatch && depinfo != null) {
+      // really dirty, if you have better method then please do a PR
+    } else if (pzehostmatch && depinfo != null && !path.includes("resource")) {
         console.log('user is on department page')
         if (isLoggedIn()) {
             console.log('user is logged in')
