@@ -2,7 +2,7 @@
 // @name        POLSL PZE Autologin
 // @namespace   https://github.com/PixelHir
 // @match       http*://platforma*.polsl.pl/*
-// @version     1.0.2
+// @version     1.0.3
 // @author      Jędrzej Gortel (github.com/PixelHir)
 // @require     https://code.jquery.com/jquery-3.6.0.slim.min.js
 // @require     https://cdn.jsdelivr.net/npm/simple-crypto-js@2.5.0/dist/SimpleCrypto.min.js
@@ -104,6 +104,10 @@
     function loginRedirect(dep) {
         window.location.href = 'https://' + dep + '/login/index.php';
     }
+    
+    function isPathIgnored(path) {
+        return /resource|file|pdf/.test(path);
+    }
 
     var host = window.location.host;
     var path = window.location.pathname
@@ -118,7 +122,7 @@
             login()
         });
       // really dirty, if you have better method then please do a PR
-    } else if (pzehostmatch && depinfo != null && !path.includes("resource")) {
+    } else if (pzehostmatch && depinfo != null && !isPathIgnored) {
         console.log('user is on department page')
         if (isLoggedIn()) {
             console.log('user is logged in')
