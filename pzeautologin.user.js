@@ -122,7 +122,7 @@
             login()
         });
       // really dirty, if you have better method then please do a PR
-    } else if (pzehostmatch && depinfo != null && !isPathIgnored) {
+    } else if (pzehostmatch && depinfo != null && !isPathIgnored(path)) {
         console.log('user is on department page')
         if (isLoggedIn()) {
             console.log('user is logged in')
