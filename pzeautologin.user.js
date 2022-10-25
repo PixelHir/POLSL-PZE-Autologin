@@ -2,7 +2,7 @@
 // @name        POLSL PZE Autologin
 // @namespace   https://github.com/PixelHir
 // @match       http*://platforma*.polsl.pl/*
-// @version     1.0.4
+// @version     1.0.5
 // @author      Jędrzej Gortel (github.com/PixelHir)
 // @require     https://code.jquery.com/jquery-3.6.0.slim.min.js
 // @require     https://cdn.jsdelivr.net/npm/simple-crypto-js@2.5.0/dist/SimpleCrypto.min.js
@@ -20,7 +20,7 @@
     const depregex = /\/([a-zA-Z0-9]+)\//;
 
     function isLoggedIn() {
-        return document.getElementsByClassName('usertext').length > 0
+        return document.getElementsByClassName('avatar current').length > 0
     }
 
     function login(firstTime) {
